@@ -16,3 +16,12 @@ p {
 .text-blue {
   color: blue;
 }
+
+.text-bubble {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
