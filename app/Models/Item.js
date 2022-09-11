@@ -20,7 +20,7 @@ export class Item {
           </form>
           <p>${this.name.toUpperCase()}</p>
         </div>
-        <i class="mdi mdi-delete selectable" onclick="app.itemsController.removeItem('${this.id}')"></i>
+        <i class="mdi mdi-delete selectable" onclick="app.itemsController.removeItem('${this.id}')" title="Delete Item"></i>
       </div>
     `
   }

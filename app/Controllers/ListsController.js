@@ -1,6 +1,7 @@
 import { appState } from "../AppState.js"
 import { listsService } from "../Services/ListsService.js"
 import { getFormData } from "../Utils/FormHandler.js"
+import { saveState } from "../Utils/Store.js"
 import { setHTML } from "../Utils/Writer.js"
 
 function _drawLists() {
@@ -24,7 +25,7 @@ export class ListsController {
       let form = window.event.target
       let formData = getFormData(form)
       // @ts-ignore
-      console.log("color", formData.color)
+      // console.log("color", formData.color)
       listsService.createList(formData)
       // @ts-ignore
       form.reset()
@@ -43,5 +44,9 @@ export class ListsController {
     if (window.confirm(message)) {
       listsService.removeList(listId)
     }
+  }
+
+  toggleItems(listId) {
+    listsService.toggleItems(listId)
   }
 }
