@@ -13,7 +13,7 @@ export class Item {
 
   get Template() {
     return /*html*/`
-      <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded mb-1 ${this.isChecked ? 'text-blue' : ''}">
+      <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded mb-1 ${this.isChecked ? 'bg-success lighten-40' : ''}" style="${this.isChecked ? 'text-decoration: line-through;' : ''}">
         <div class="d-flex align-items-center gap-2">
           <form>
             <input type="checkbox" onchange="app.itemsController.toggleIsChecked('${this.id}')" ${this.isChecked ? "checked" : ""}>

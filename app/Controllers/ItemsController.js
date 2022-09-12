@@ -17,8 +17,10 @@ export class ItemsController {
       // @ts-ignore
       formData.listId = listId
       itemsService.createItem(formData)
+      itemsService.uncollapseItems(listId)
       // @ts-ignore
-      // form.reset()
+      form.reset()
+      _moveFocus(listId)
     } catch (error) {
       console.error("createItem", error)
     }
@@ -29,7 +31,7 @@ export class ItemsController {
     let message = "Delete this item?"
     if (item) {
       // @ts-ignore
-      message = "Delete " + item.name + "?"
+      message = "Delete " + item.name.toUpperCase() + "?"
     }
 
     if (window.confirm(message)) {
@@ -39,5 +41,9 @@ export class ItemsController {
 
   toggleIsChecked(itemId) {
     itemsService.toggleIsChecked(itemId)
-  }
+  }  
+}
+function _moveFocus(listId) {
+  // @ts-ignore
+  document.getElementById(`item-name-input-${listId}`).focus()
 }

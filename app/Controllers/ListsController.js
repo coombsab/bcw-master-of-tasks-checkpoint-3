@@ -1,7 +1,6 @@
 import { appState } from "../AppState.js"
 import { listsService } from "../Services/ListsService.js"
 import { getFormData } from "../Utils/FormHandler.js"
-import { saveState } from "../Utils/Store.js"
 import { setHTML } from "../Utils/Writer.js"
 
 function _drawLists() {
@@ -39,7 +38,7 @@ export class ListsController {
     let message = "Delete this list?"
     if (list) {
       // @ts-ignore
-      message = "Delete " + list.name + "?"
+      message = "Delete " + list.name.toUpperCase() + "?"
     }
     if (window.confirm(message)) {
       listsService.removeList(listId)
@@ -48,5 +47,9 @@ export class ListsController {
 
   toggleItems(listId) {
     listsService.toggleItems(listId)
+  }
+
+  uncollapseItems(listId) {
+    listsService.uncollapseItems(listId)
   }
 }

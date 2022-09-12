@@ -1,5 +1,4 @@
 import { appState } from "../AppState.js"
-import { ListsController } from "../Controllers/ListsController.js"
 import { List } from "../Models/List.js"
 import { saveState } from "../Utils/Store.js"
 
@@ -7,6 +6,7 @@ class ListsService {
   constructor() {
     
   }
+  
   toggleItems(listId) {
     let element = document.getElementById(`collapsible-items-${listId}`)
     let list = appState.lists.find(list => list.id === listId)
@@ -28,7 +28,6 @@ class ListsService {
     }
     saveState("lists", appState.lists)
     appState.emit("lists")
-
   }
   removeList(listId) {
     appState.lists = appState.lists.filter(list => list.id !== listId)

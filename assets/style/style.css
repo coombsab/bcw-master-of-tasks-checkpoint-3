@@ -29,3 +29,7 @@ p {
 /* .draggable {
   position: absolute;
 } */
+
+/* input[type=checkbox]:checked+label {
+  text-decoration: line-through;
+} */
